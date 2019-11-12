@@ -20,7 +20,7 @@ namespace LandmarkRemarkService.Database
             => options.UseSqlite("Data Source=LandmarkRemark.db");
 
         /// <summary>
-        /// This seeds 2 default users FOR DEMO PURPOSES only!
+        /// This seeds 2 default users for DEMO/TEST purposes!
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,15 +28,15 @@ namespace LandmarkRemarkService.Database
             modelBuilder.Entity<UserInfo>().HasData(new UserInfo
             {
                 UserId = "guest1",
-                Email = "testUser1@testuser1.com",
+                Email = "GuestUser1@GuestUser1.com",
                 Password  = "1",
-                Name = "Test User1",
+                Name = "Guest User1",
             }, new UserInfo
             {
                 UserId = "guest2",
-                Email = "testUser2@testuser2.com",
+                Email = "GuestUser2@GuestUser2.com",
                 Password  = "2",
-                Name = "Test User2",
+                Name = "Guest User2",
             });
 
         }

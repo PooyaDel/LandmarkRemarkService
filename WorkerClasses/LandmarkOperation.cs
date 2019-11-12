@@ -31,9 +31,15 @@ namespace LandmarkRemarkService.WorkerClasses
         {
             try
             {
+                if (string.IsNullOrEmpty(userId))
+                {
+                    throw new InvalidOperationException("User ID is empty.");
+                }
+
                 await using var context = new LandmarkDbContext();
-                var currentUser = context.UserContextInfo.First(x => x.UserId == userId);
-                return context.MapLandmark.Select(s => new MarkerViewModel(s.Lat, s.Lng, s.Text, s.UserId == currentUser.UserId, currentUser.Name))?.ToList();
+                return context.UserContextInfo.SelectMany(user => user.MapLandmarks, 
+                        (user, landmark) => new MarkerViewModel(landmark.Lat, landmark.Lng, landmark.Text, user.UserId == userId, user.Name))
+                            .ToList();
             }
             catch (Exception e)
             {

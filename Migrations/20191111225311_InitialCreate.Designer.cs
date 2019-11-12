@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LandmarkRemarkService.Migrations
 {
     [DbContext(typeof(LandmarkDbContext))]
-    [Migration("20191111035334_InitialCreate")]
+    [Migration("20191111225311_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
