@@ -4,3 +4,6 @@ Requirements:
 
 ## Run 
 type `dotnet run` in the solution folder.
+
+## Run 
+type `dotnet test` in the solution folder.
